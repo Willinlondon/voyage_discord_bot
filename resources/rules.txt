@@ -8,4 +8,5 @@ Our rules can be navigated with a menu based system. Our rules can be navigated 
 !application - Becoming a raider is application based.
 !alts        - We welcome alts in Silverblade.
 !friend      - We allow our guild members to invite friends.
+!feedback    - Given Anonymous Feedback to the council (your name will not be known to anyone, including the council).
 ```

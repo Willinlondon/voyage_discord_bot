@@ -13,6 +13,7 @@ class GuildRoles:
 
 
 APPLICATIONS_CHANNEL = 651719224275894272
+COUNCIL_CHANNEL = 618542029994983455
 GUILD = 238705194244898817
 
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
@@ -188,6 +189,18 @@ async def reject(ctx):
     await ctx.send(APPLICATION_REJECTED_RESPONSE.format(member))
     await member.remove_roles(role)
     await member.send(APPLICATION_REJECTED.format(member, reason))
+
+
+@bot.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
+async def feedback(ctx):
+    if len(ctx.message.content.strip().split(" ")) <= 1:
+        await ctx.author.send(FEEDBACK_NOT_ENOUGH_PARAMS)
+        return
+
+    await ctx.author.send(FEEDBACK_RECEIVED)
+    channel = bot.get_channel(COUNCIL_CHANNEL)
+    await channel.send(FEEDBACK_FORWARD.format(ctx.message.content.split(None, 1)[1]))
 
 
 @bot.command(pass_context=True)
