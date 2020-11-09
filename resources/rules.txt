@@ -1,4 +1,4 @@
-Our rules can be navigated with a menu based system. Our rules can be navigated with a menu based system. Simply type the `!command` you want to view into this message chain.
+Our rules can be navigated with a menu based system. Simply type the `!command` you want to view into this message chain.
 
 ```
 !ranks       - Types of ranks in the guild.
