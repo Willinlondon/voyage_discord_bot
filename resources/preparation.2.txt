@@ -5,8 +5,10 @@
 Have all types of consumables ready for every fight BEFORE joining the raid.
 
 That means:
-- Food, the best type and with the correct stat. Food is used on every pull besides literally the first few "We have no idea what we're doing and wil lwipe to that" pulls.
-- Flask, of the best type. Flasks are always expected.
-- Potions - 2x per attempted pull
 
-Vantus runes may be provided when needed. If feast is the best type of food at the time, feasts may also be provided, but you should still have food so we don't have to pop an entire table for one guy.
+- Food, the best type and with the correct stat.
+- Flask, of the best type. Flasks are always expected.
+- Potions
+- Weapon Oils/Stones
+
+Vantus runes may be provided when needed. If feast is the best type of food at the time, feasts may also be provided, but you should still have food so we don't have to pop an entire table for one guy. We don't typically require augment runes unless under very specific circumstances, but it might be useful to have some just in case.
