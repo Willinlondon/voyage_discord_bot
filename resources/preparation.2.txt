@@ -4,8 +4,8 @@
 
 Have all types of consumables/enchants ready for every fight BEFORE joining the raid. Types of consumables that are available right now:
 
-- Food, the best type and with the correct stat (sometimes provided).
-- Flask, of the best type. Flasks are always expected (sometimes provided).
+- Food, the best type (sometimes provided).
+- Flask, the best type (sometimes provided).
 - Potions (combat/utility).
 - Weapon Oils/Stones.
 - Vantus runes (usually provided).
