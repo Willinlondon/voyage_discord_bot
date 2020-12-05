@@ -8,8 +8,8 @@ Please be online 15 minutes before raid.
 
 *You must sign up to raids on the guild calendar!*
 
-- If you can come and will be there on time, *accept* the invite.
-- If you can come but will be late, mark as *tentative* and write in the Discord #absences channel.
-- If you cannot come at all, *decline* the invite and write in the Discord #absences channel.
+- If you can come and will be there on time, **accept** the invite.
+- If you can come but will be late, mark as **tentative** and write in the Discord #absences channel.
+- If you cannot come at all, **decline** the invite and write in the Discord #absences channel.
 
 The raid team for the upcoming week will be determined on Monday based on who is signed up. Raiders that are unsigned will be considered unavailable and placed on standby.
