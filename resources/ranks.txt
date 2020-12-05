@@ -9,7 +9,7 @@ There are a few ground rules you must follow in Silverblade depending on your ra
  Crusader    - The main raiding rank.
  Avatar      - The alts of Crusaders.
  Initiate    - People who are in the process of becoming a Crusader.
- Sentinel    - Support rank for people who cannot meet our schedule.
+ Sentinel    - Support rank for people who cannot meet our schedule or we are unable to commit spots to (i.e. waitlist)
  Hand        - The main social rank
 ```
 
