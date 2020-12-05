@@ -5,6 +5,6 @@ Maintain your knowledge of the game and your spec especially. This means a combi
 
 We do not merely expect you to use one of these tools, but to use several in combination to form a strong understand of the class and spec you play.
 
-Furthermore, we expect you to be continuously simming your character with Simcraft, Ask Mr. Robot, or a similar tool in order to always know whether or not a particular item is an upgrade.
+Furthermore, we expect you to be continuously simming your character with Simcraft, Ask Mr. Robot, or a similar tool in order to always know whether or not a particular item is an upgrade. We've invested in a bot that can be found in the sims channel on Discord that you can use to sim your character, so feel free to use that to bypass queues and get your up to date sims.
 
 Upgrade your gear by participating in WoW's many activities outside raiding to upgrade your gear. Frequently the guild will set particular demands on how prepared you must be to enter a raid with the team. Make sure you are familiar with and meet those goals.
