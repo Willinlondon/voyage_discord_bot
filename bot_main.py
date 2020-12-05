@@ -202,7 +202,11 @@ async def feedback(ctx):
     channel = bot.get_channel(COUNCIL_CHANNEL)
     await channel.send(FEEDBACK_FORWARD.format(ctx.message.content.split(None, 1)[1]))
 
-
+@bot.command(pass_context=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
+async def council(ctx):
+    await ctx.author.send(COUNCIL)
+    
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def rules(ctx):

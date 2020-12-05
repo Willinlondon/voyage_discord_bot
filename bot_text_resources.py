@@ -31,6 +31,7 @@ APPLICATION_PROVIDED_LOGS = Path("resources/application_provided_logs.txt").read
 APPLICATION_PROVIDED_ARMORY = Path("resources/application_provided_armory.txt").read_text()
 APPLICATION_PROVIDED_RAIDERIO = Path("resources/application_provided_raiderio.txt").read_text()
 ALTS = Path("resources/alts.txt").read_text()
+COUNCIL = Path("resources/council.txt").read_text()
 FEEDBACK_RECEIVED = Path("resources/feedback_received.txt").read_text()
 FEEDBACK_FORWARD = Path("resources/feedback_forward.txt").read_text()
 FEEDBACK_NOT_ENOUGH_PARAMS = Path("resources/feedback_not_enough_params.txt").read_text()

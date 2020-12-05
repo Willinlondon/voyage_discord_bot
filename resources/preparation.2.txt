@@ -2,11 +2,13 @@
 ** **
 **Preparation**
 
-Have all types of consumables ready for every fight BEFORE joining the raid.
+Have all types of consumables/enchants ready for every fight BEFORE joining the raid. Types of consumables that are available right now:
 
-That means:
-- Food, the best type and with the correct stat. Food is used on every pull besides literally the first few "We have no idea what we're doing and wil lwipe to that" pulls.
-- Flask, of the best type. Flasks are always expected.
-- Potions - 2x per attempted pull
+- Food, the best type and with the correct stat (sometimes provided).
+- Flask, of the best type. Flasks are always expected (sometimes provided).
+- Potions (combat/utility).
+- Weapon Oils/Stones.
+- Vantus runes (usually provided).
+- Augment runes (not usually required).
 
-Vantus runes may be provided when needed. If feast is the best type of food at the time, feasts may also be provided, but you should still have food so we don't have to pop an entire table for one guy.
+Vantus runes may be provided when needed as well as flasks and feasts, but you must still have your own consumables in the case that they are not being provided on occasion. Augment runes aren't typically required unless under very specific circumstances, but it might be useful to have some just in case.
