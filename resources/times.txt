@@ -1,13 +1,15 @@
 Our raid days are **Thursday** 20:30-23:30 and **Sunday** 20:30-23:30 server time every week. Occasionally the raid time may extend for a few more pulls if we feel we're close to a kill, but never past midnight.   
 
-We expect our raiders to be able to attend both days unless signing the calendar to decline on occasional circumstances.
+We expect raiders to be able to attend both days unless signing the calendar to decline on occasional/agreed circumstances.
 
 **Important**
 
-Try to be online 15 minutes before raid. Be on no later than the start and be ready to accept summon immediately.
+Please be online 15 minutes before raid.
 
-*Sign up on guild calendar!*
+*You must sign up to raids on the guild calendar!*
 
-- If you can come and will be there on time.
-- If you can come but will be late. Write in the Discord #absences channel
-- If you cannot come at all. Write in the Discord #absences channel
+- If you can come and will be there on time, *accept* the invite.
+- If you can come but will be late, mark as *tentative* and write in the Discord #absences channel.
+- If you cannot come at all, *decline* the invite and write in the Discord #absences channel.
+
+The raid team for the upcoming week will be determined on Monday based on who is signed up. Raiders that are unsigned will be considered unavailable and placed on standby.
