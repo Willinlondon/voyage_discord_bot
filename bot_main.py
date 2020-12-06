@@ -210,8 +210,14 @@ async def council(ctx):
 @bot.command(pass_context=True)
 @commands.has_any_role('Councillor')
 @commands.cooldown(2, 5, commands.BucketType.user)
-async def council(ctx):
+async def initiates(ctx):
     await ctx.send(bot_wow_api.parse(INITIATES))
+    
+@bot.command(pass_context=True)
+@commands.has_any_role('Councillor')
+@commands.cooldown(1, 5, commands.BucketType.user)
+async def trials(ctx):
+    await initiates.invoke(ctx)
     
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
