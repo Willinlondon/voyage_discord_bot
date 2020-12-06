@@ -208,6 +208,12 @@ async def council(ctx):
     await ctx.author.send(bot_wow_api.parse(COUNCIL))
     
 @bot.command(pass_context=True)
+@commands.has_any_role('Councillor')
+@commands.cooldown(2, 5, commands.BucketType.user)
+async def council(ctx):
+    await ctx.send(bot_wow_api.parse(INITIATES))
+    
+@bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def rules(ctx):
     await ctx.author.send(RULES)
