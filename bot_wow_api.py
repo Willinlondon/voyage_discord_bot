@@ -42,7 +42,7 @@ def fetch_roster(args):
     
     formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} {member[1]}" for member in list_of_ranks_matching_criteria]
     
-    join_ranks_into_formatted_list = "\n ".join(list_of_ranks_matching_criteria)
+    join_ranks_into_formatted_list = "\n ".join(formatted_list_of_ranks_matching_criteria)
     
     return join_ranks_into_formatted_list
 
