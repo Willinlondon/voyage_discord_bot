@@ -2,4 +2,4 @@ Silverblade currently has the following initiates:
 
 ${wow_api.fetch_ranks(4)}
 
-Initiates are currently rank 5 in the guild.
+Similar commands: `!council`, `!sentinels`, `!raiders`
