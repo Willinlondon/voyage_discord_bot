@@ -1,5 +1,5 @@
 Silverblade currently has the following sentinels:
 
-${wow_api.fetch_ranks(3)}
+${wow_api.fetch_ranks_with_class_icons(3)}
 
 Similar commands: `!council`, `!initiates`, `!raiders`, `!roster`
