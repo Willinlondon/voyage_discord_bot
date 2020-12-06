@@ -1,11 +1,10 @@
 import discord
 import os
-import wowapi
+import bot_wow_api
 
 from discord.ext import commands
 from datetime import datetime
 from bot_text_resources import *
-
 
 class GuildRoles:
     ROLE_FRIEND = "Friend"
@@ -16,8 +15,6 @@ class GuildRoles:
 APPLICATIONS_CHANNEL = 651719224275894272
 COUNCIL_CHANNEL = 618542029994983455
 GUILD = 238705194244898817
-
-wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZARD_CLIENT_SECRET'))
 
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 bot.remove_command('help')
@@ -206,21 +203,44 @@ async def feedback(ctx):
     await channel.send(FEEDBACK_FORWARD.format(ctx.message.content.split(None, 1)[1]))
 
 @bot.command(pass_context=True)
-@commands.cooldown(1, 5, commands.BucketType.user)
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def sentinels(ctx):
+    await ctx.send(bot_wow_api.parse(SENTINELS))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def raiders(ctx):
+    await ctx.send(bot_wow_api.parse(RAIDERS))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def roster(ctx):
+    await ctx.send(bot_wow_api.parse(ROSTER))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def council(ctx):
-    await ctx.author.send(COUNCIL)
+    await ctx.send(bot_wow_api.parse(COUNCIL))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def initiates(ctx):
+    await ctx.send(bot_wow_api.parse(INITIATES))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def trials(ctx):
+    await initiates.invoke(ctx)
     
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def rules(ctx):
     await ctx.author.send(RULES)
 
-
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def menu(ctx):
     await rules.invoke(ctx)
-
 
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
