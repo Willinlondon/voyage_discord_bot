@@ -220,7 +220,7 @@ async def roster(ctx):
 @bot.command(pass_context=True)
 @commands.cooldown(1, 10, commands.BucketType.user)
 async def council(ctx):
-    await ctx.author.send(bot_wow_api.parse(COUNCIL))
+    await ctx.send(bot_wow_api.parse(COUNCIL))
     
 @bot.command(pass_context=True)
 @commands.cooldown(1, 10, commands.BucketType.user)
