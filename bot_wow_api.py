@@ -43,7 +43,7 @@ def fetch_ranks_with_class_icons(args):
     
     list_of_ranks_matching_criteria = [(member["character"]["playable_class"]["id"], member["character"]["name"], str(member["rank"]))
                                          for member in roster_json["members"] 
-                                             if int(member["rank"]) in rank_list.split(",")]
+                                             if str(member["rank"]) in rank_list.split(",")]
     
     list_of_ranks_matching_criteria.sort()
     
