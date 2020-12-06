@@ -1,5 +1,5 @@
 Silverblade currently has the following raiders (crusaders):
 
-${wow_api.fetch_ranks(2)}
+${wow_api.fetch_ranks_with_class_icons(2)}
 
 Similar commands: `!council`, `!sentinels`, `!initiates`, `!roster`
