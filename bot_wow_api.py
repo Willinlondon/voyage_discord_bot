@@ -23,7 +23,7 @@ def fetch_roster(args):
     
     list_of_ranks_matching_criteria = [f':rogue: {member["character"]["name"]}'
                                          for member in roster_json["members"] 
-                                             if str(member["rank"]) in [0,1,2,3,4]]
+                                             if int(member["rank"]) in [0,1,2,3,4]]
     
     join_ranks_into_formatted_list = "\n - ".join(list_of_ranks_matching_criteria)
     
