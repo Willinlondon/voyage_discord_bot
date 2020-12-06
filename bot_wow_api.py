@@ -37,22 +37,24 @@ def fetch_ranks(args):
     
     return f" - {join_ranks_into_formatted_list}"
 
-def fetch_roster(args):
+def fetch_ranks_with_class_icons(args):
+    rank_list = args[0]
     roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
     
     list_of_ranks_matching_criteria = [(member["character"]["playable_class"]["id"], member["character"]["name"], str(member["rank"]))
                                          for member in roster_json["members"] 
-                                             if int(member["rank"]) in [0,1,2,3,4]]
+                                             if int(member["rank"]) in rank_list.split(",")]
     
     list_of_ranks_matching_criteria.sort()
     
-    formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} `{member[1]}` ({wow_guild_ranks[member[2]]})" for member in list_of_ranks_matching_criteria]
+    formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} `{member[1]}`" 
+                                                   for member in list_of_ranks_matching_criteria]
     
     join_ranks_into_formatted_list = "\n  ".join(formatted_list_of_ranks_matching_criteria)
     
     return f"  {join_ranks_into_formatted_list}"
 
-functionality = {"fetch_ranks": fetch_ranks, "fetch_roster": fetch_roster}
+functionality = {"fetch_ranks": fetch_ranks, "fetch_ranks_with_class_icons": fetch_ranks_with_class_icons}
 
 def parse(content):
     possible_match = identify_api_call_pattern.search(content)
