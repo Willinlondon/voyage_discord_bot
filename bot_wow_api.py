@@ -63,6 +63,6 @@ def parse(content):
     else:
         wow_api_function = possible_match.groups()[0]
         if wow_api_function in functionality:
-            return identify_api_call_pattern.sub(functionality[wow_api_function](possible_match.groups()[1:]), content)
-        else:
-            return content
+            content = identify_api_call_pattern.sub(functionality[wow_api_function](possible_match.groups()[1:]), content, 1)
+            
+    return parse(content)
