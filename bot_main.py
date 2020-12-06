@@ -1,11 +1,10 @@
 import discord
 import os
-import wowapi
+import bot_wow_api
 
 from discord.ext import commands
 from datetime import datetime
 from bot_text_resources import *
-
 
 class GuildRoles:
     ROLE_FRIEND = "Friend"
@@ -16,8 +15,6 @@ class GuildRoles:
 APPLICATIONS_CHANNEL = 651719224275894272
 COUNCIL_CHANNEL = 618542029994983455
 GUILD = 238705194244898817
-
-wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZARD_CLIENT_SECRET'))
 
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 bot.remove_command('help')
@@ -208,7 +205,7 @@ async def feedback(ctx):
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def council(ctx):
-    await ctx.author.send(COUNCIL)
+    await ctx.author.send(bot_wow_api.parse(COUNCIL))
     
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
