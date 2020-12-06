@@ -1,4 +1,4 @@
-Silverblade currently has the following raiders (crusaders):
+Silverblade currently has the following roster, to make an application type `!application`:
 
 **Council**
 
