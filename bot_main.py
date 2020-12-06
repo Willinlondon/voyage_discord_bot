@@ -204,6 +204,16 @@ async def feedback(ctx):
 
 @bot.command(pass_context=True)
 @commands.cooldown(1, 10, commands.BucketType.user)
+async def sentinels(ctx):
+    await ctx.send(bot_wow_api.parse(SENTINELS))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def raiders(ctx):
+    await ctx.send(bot_wow_api.parse(RAIDERS))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def council(ctx):
     await ctx.author.send(bot_wow_api.parse(COUNCIL))
     
@@ -222,12 +232,10 @@ async def trials(ctx):
 async def rules(ctx):
     await ctx.author.send(RULES)
 
-
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
 async def menu(ctx):
     await rules.invoke(ctx)
-
 
 @bot.command(pass_context=True)
 @commands.cooldown(1, 5, commands.BucketType.user)
