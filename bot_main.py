@@ -203,19 +203,17 @@ async def feedback(ctx):
     await channel.send(FEEDBACK_FORWARD.format(ctx.message.content.split(None, 1)[1]))
 
 @bot.command(pass_context=True)
-@commands.cooldown(1, 5, commands.BucketType.user)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def council(ctx):
     await ctx.author.send(bot_wow_api.parse(COUNCIL))
     
 @bot.command(pass_context=True)
-@commands.has_any_role('Councillor')
-@commands.cooldown(2, 5, commands.BucketType.user)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def initiates(ctx):
     await ctx.send(bot_wow_api.parse(INITIATES))
     
 @bot.command(pass_context=True)
-@commands.has_any_role('Councillor')
-@commands.cooldown(1, 5, commands.BucketType.user)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def trials(ctx):
     await initiates.invoke(ctx)
     
