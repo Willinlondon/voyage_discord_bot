@@ -1,11 +1,6 @@
   
 Silverblade leadership operates as a council, there is no guild master (although the rank has to be held by someone, so it often rotates around people). The current council consists of:
 
-- Christopher
-- Furryfrank
-- Ishayoe
-- Moist
-- Shamborghini
-- Tribeard
+${wow_api.fetch_ranks(0,1)}
 
 Please contact any of them if you have any enquiries or need more information about them or their roles in the guild.
