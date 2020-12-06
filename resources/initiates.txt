@@ -1,5 +1,5 @@
 Silverblade currently has the following initiates:
 
-${wow_api.fetch_ranks(4)}
+${wow_api.fetch_ranks_with_class_icons(4)}
 
 Similar commands: `!council`, `!sentinels`, `!raiders`, `!roster`
