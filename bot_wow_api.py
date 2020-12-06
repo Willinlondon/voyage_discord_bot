@@ -4,7 +4,7 @@ import wowapi
 
 wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZARD_CLIENT_SECRET'))
 
-identify_api_call_pattern = re.compile("\${\wow_api\.([a-zA-Z_-].+)\(([0-9,]+)\)\}")
+identify_api_call_pattern = re.compile("\${\wow_api\.([a-zA-Z_-].+)\(([0-9,]+)?\)\}")
 
 def fetch_ranks(args):
     rank_list = args[0]
