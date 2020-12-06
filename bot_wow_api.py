@@ -14,7 +14,9 @@ def fetch_ranks(args):
                                          for member in roster_json["members"] 
                                              if str(member["rank"]) in rank_list.split(",")]
     
-    return f" - {"\n - ".join(list_of_ranks_matching_criteria)}"
+    join_ranks_into_formatted_list = "\n - ".join(list_of_ranks_matching_criteria)
+    
+    return f" - {join_ranks_into_formatted_list}"
         
 functionality = {"fetch_ranks": fetch_ranks}
 
