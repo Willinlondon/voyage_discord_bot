@@ -1,5 +1,6 @@
 import discord
 import os
+import wowapi
 
 from discord.ext import commands
 from datetime import datetime
@@ -15,6 +16,8 @@ class GuildRoles:
 APPLICATIONS_CHANNEL = 651719224275894272
 COUNCIL_CHANNEL = 618542029994983455
 GUILD = 238705194244898817
+
+wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZARD_CLIENT_SECRET'))
 
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 bot.remove_command('help')
