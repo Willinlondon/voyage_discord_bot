@@ -214,6 +214,11 @@ async def raiders(ctx):
     
 @bot.command(pass_context=True)
 @commands.cooldown(1, 10, commands.BucketType.user)
+async def roster(ctx):
+    await ctx.send(bot_wow_api.parse(ROSTER))
+    
+@bot.command(pass_context=True)
+@commands.cooldown(1, 10, commands.BucketType.user)
 async def council(ctx):
     await ctx.author.send(bot_wow_api.parse(COUNCIL))
     
