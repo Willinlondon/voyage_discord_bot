@@ -1,5 +1,5 @@
 Silverblade leadership operates as a council, there is no guild master (although the rank has to be held by someone, so it often rotates around people). The current council consists of:
 
-${wow_api.fetch_ranks(0,1)}
+${wow_api.fetch_ranks_with_class_icons(0,1)}
 
 Please contact any of them if you have any enquiries or need more information about them or their roles in the guild.
