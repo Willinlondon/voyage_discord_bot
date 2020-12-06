@@ -21,7 +21,7 @@ def fetch_ranks(args):
 def fetch_roster(args):
     roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
     
-    list_of_ranks_matching_criteria = [f':rogue: {member["character"]["name"]}'
+    list_of_ranks_matching_criteria = [f'<:rogue:785130266410483732> {member["character"]["name"]}'
                                          for member in roster_json["members"] 
                                              if int(member["rank"]) in [0,1,2,3,4]]
     
