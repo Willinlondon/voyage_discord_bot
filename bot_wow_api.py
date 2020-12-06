@@ -6,6 +6,19 @@ wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZ
 
 identify_api_call_pattern = re.compile("\${\wow_api\.([a-zA-Z_-].+)\(([0-9,]+)?\)\}")
 
+wow_class_icons = {"1": "<:rogue:785130266410483732>",
+                   "2": "<:rogue:785130266410483732>",
+                   "3": "<:rogue:785130266410483732>",
+                   "4": "<:rogue:785130266410483732>",
+                   "5": "<:rogue:785130266410483732>",
+                   "6": "<:rogue:785130266410483732>",
+                   "7": "<:rogue:785130266410483732>",
+                   "8": "<:rogue:785130266410483732>",
+                   "9": "<:rogue:785130266410483732>",
+                   "10": "<:rogue:785130266410483732>",
+                   "11": "<:rogue:785130266410483732>",
+                   "12": "<:rogue:785130266410483732>"}
+
 def fetch_ranks(args):
     rank_list = args[0]
     roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
@@ -21,13 +34,13 @@ def fetch_ranks(args):
 def fetch_roster(args):
     roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
     
-    list_of_ranks_matching_criteria = [f'<:rogue:785130266410483732> {member["character"]["name"]}'
+    list_of_ranks_matching_criteria = [f'{wow_class_icons[member["character"]["playable_class"]["id"]]} {member["character"]["name"]}'
                                          for member in roster_json["members"] 
                                              if int(member["rank"]) in [0,1,2,3,4]]
     
-    join_ranks_into_formatted_list = "\n - ".join(list_of_ranks_matching_criteria)
+    join_ranks_into_formatted_list = "\n ".join(list_of_ranks_matching_criteria)
     
-    return f" - {join_ranks_into_formatted_list}"
+    return join_ranks_into_formatted_list
 
 functionality = {"fetch_ranks": fetch_ranks, "fetch_roster": fetch_roster}
 
