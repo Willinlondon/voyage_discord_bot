@@ -2,4 +2,4 @@ Silverblade currently has the following raiders (crusaders):
 
 ${wow_api.fetch_ranks(2)}
 
-Similar commands: `!council`, `!sentinels`, `!initiates`
+Similar commands: `!council`, `!sentinels`, `!initiates`, `!roster`
