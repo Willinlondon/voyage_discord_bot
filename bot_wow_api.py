@@ -34,9 +34,13 @@ def fetch_ranks(args):
 def fetch_roster(args):
     roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
     
-    list_of_ranks_matching_criteria = [f'{wow_class_icons[member["character"]["playable_class"]["id"]]} {member["character"]["name"]}'
+    list_of_ranks_matching_criteria = [(member["character"]["playable_class"]["id"], member["character"]["name"])
                                          for member in roster_json["members"] 
                                              if int(member["rank"]) in [0,1,2,3,4]]
+    
+    list_of_ranks_matching_criteria.sort()
+    
+    formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} {member[1]}" for member in list_of_ranks_matching_criteria]
     
     join_ranks_into_formatted_list = "\n ".join(list_of_ranks_matching_criteria)
     
