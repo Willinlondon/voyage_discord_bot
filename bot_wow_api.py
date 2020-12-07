@@ -6,12 +6,6 @@ wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZ
 
 identify_api_call_pattern = re.compile("\${\wow_api\.([a-zA-Z_-].+)\(([0-9,]+)?\)\}")
 
-wow_guild_ranks = {"0": "Council", 
-                   "1": "Council",
-                   "2": "Crusader",
-                   "3": "Sentinel",
-                   "4": "Initiate"}
-
 wow_class_icons = {"1": "<:warrior:785139541102690324>",
                    "2": "<:paladin:785139814474186762>",
                    "3": "<:hunter:785140043596431361>",
@@ -25,18 +19,6 @@ wow_class_icons = {"1": "<:warrior:785139541102690324>",
                    "11": "<:druid:785141081389662228>",
                    "12": "<:demonhunter:785141081355321374>"}
 
-def fetch_ranks(args):
-    rank_list = args[0]
-    roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
-    
-    list_of_ranks_matching_criteria = [member["character"]["name"] 
-                                         for member in roster_json["members"] 
-                                             if str(member["rank"]) in rank_list.split(",")]
-    
-    join_ranks_into_formatted_list = "\n - ".join(list_of_ranks_matching_criteria)
-    
-    return f" - {join_ranks_into_formatted_list}"
-
 def fetch_ranks_with_class_icons(args):
     rank_list = args[0]
     roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
@@ -46,10 +28,7 @@ def fetch_ranks_with_class_icons(args):
                                              if str(member["rank"]) in rank_list.split(",")]
     
     list_of_ranks_matching_criteria.sort()
-    
-    formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} `{member[1]}`" 
-                                                   for member in list_of_ranks_matching_criteria]
-    
+    formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} `{member[1]}`" for member in list_of_ranks_matching_criteria]
     join_ranks_into_formatted_list = "\n  ".join(formatted_list_of_ranks_matching_criteria)
     
     return f"  {join_ranks_into_formatted_list}"
