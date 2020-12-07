@@ -2,6 +2,8 @@ import os
 import re
 import wowapi
 
+from bot_config import *
+
 wow_api_client = wowapi.WowApi(os.getenv('BLIZZARD_CLIENT_ID'), os.getenv('BLIZZARD_CLIENT_SECRET'))
 
 identify_api_call_pattern = re.compile("\${\wow_api\.([a-zA-Z_-].+)\(([0-9,]+)?\)\}")
@@ -21,7 +23,7 @@ wow_class_icons = {"1": "<:warrior:785139541102690324>",
 
 def fetch_ranks_with_class_icons(args):
     rank_list = args[0]
-    roster_json = wow_api_client.get_guild_roster("eu", "profile-eu", "frostmane", "silverblade")
+    roster_json = wow_api_client.get_guild_roster(GAME_REGION, f"profile-${GAME_REGION}", GAME_REALM, GAME_GUILD)
     
     list_of_ranks_matching_criteria = [(member["character"]["playable_class"]["id"], member["character"]["name"], str(member["rank"]))
                                          for member in roster_json["members"] 
