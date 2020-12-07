@@ -23,7 +23,7 @@ wow_class_icons = {"1": "<:warrior:785139541102690324>",
 
 def fetch_ranks_with_class_icons(args):
     rank_list = args[0]
-    roster_json = wow_api_client.get_guild_roster(GAME_REGION, f"profile-${GAME_REGION}", GAME_REALM, GAME_GUILD)
+    roster_json = wow_api_client.get_guild_roster(GAME_REGION, f"profile-{GAME_REGION}", GAME_REALM, GAME_GUILD)
     
     list_of_ranks_matching_criteria = [(member["character"]["playable_class"]["id"], member["character"]["name"], str(member["rank"]))
                                          for member in roster_json["members"] 
