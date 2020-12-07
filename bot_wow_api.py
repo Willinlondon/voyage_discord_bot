@@ -33,7 +33,7 @@ def fetch_ranks_with_class_icons(args):
     
     return f"  {join_ranks_into_formatted_list}"
 
-functionality = {"fetch_ranks": fetch_ranks, "fetch_ranks_with_class_icons": fetch_ranks_with_class_icons}
+functionality = {"fetch_ranks_with_class_icons": fetch_ranks_with_class_icons}
 
 def parse(content):
     possible_match = identify_api_call_pattern.search(content)
