@@ -5,22 +5,17 @@ import bot_wow_api
 from discord.ext import commands
 from datetime import datetime
 from bot_text_resources import *
+from bot_config import *
 
 class GuildRoles:
     ROLE_FRIEND = "Friend"
     ROLE_INITIATE = "Initiate"
     ROLE_APPLICANT = "Applicant"
 
-
-APPLICATIONS_CHANNEL = 651719224275894272
-COUNCIL_CHANNEL = 618542029994983455
-GUILD = 238705194244898817
-
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 bot.remove_command('help')
 
 applicants = {}
-
 
 @bot.event
 async def on_member_join(member):
@@ -134,14 +129,14 @@ async def done(ctx):
             await ctx.author.send(APPLICATION_SUBMIT_MISSING_XP)
             return
 
-        guild = bot.get_guild(GUILD)
+        guild = bot.get_guild(DISCORD_GUILD)
         role = discord.utils.get(guild.roles, name=GuildRoles.ROLE_APPLICANT)
         await guild.get_member(ctx.author.id).add_roles(role)
         
         applicant_map["done"] = datetime.now().strftime("%D")
 
         await ctx.author.send(APPLICATION_SUBMITTED)
-        channel = bot.get_channel(APPLICATIONS_CHANNEL)
+        channel = bot.get_channel(DISCORD_APPLICATION_CHANNEL)
         await channel.send(APPLICATION_ACCEPTED.format(datetime.now().strftime("%D"), ctx.author, applicant(applicants, ctx.author)["armory"], applicant(applicants, ctx.author)["raiderio"], applicant(applicants, ctx.author)["logs"], applicant(applicants, ctx.author)["why"], applicant(applicants, ctx.author)["xp"]))
 
 
@@ -149,7 +144,7 @@ async def done(ctx):
 @commands.has_any_role('Hand', 'Crusader', 'Sentinel', 'High Hand', 'Councillor')
 @commands.cooldown(2, 5, commands.BucketType.user)
 async def friend(ctx):
-    role = discord.utils.get(bot.get_guild(GUILD).roles, name=GuildRoles.ROLE_FRIEND)
+    role = discord.utils.get(bot.get_guild(DISCORD_GUILD).roles, name=GuildRoles.ROLE_FRIEND)
     member = ctx.message.mentions[0]
 
     if role in member.roles:
@@ -163,9 +158,9 @@ async def friend(ctx):
 @commands.has_any_role('Councillor')
 @commands.cooldown(2, 5, commands.BucketType.user)
 async def accept(ctx):
-    role = discord.utils.get(bot.get_guild(GUILD).roles, name=GuildRoles.ROLE_INITIATE)
+    role = discord.utils.get(bot.get_guild(DISCORD_GUILD).roles, name=GuildRoles.ROLE_INITIATE)
     member = ctx.message.mentions[0]
-    channel = bot.get_channel(APPLICATIONS_CHANNEL)
+    channel = bot.get_channel(DISCORD_APPLICATION_CHANNEL)
     await ctx.send(APPLICATION_ACCEPTED_RESPONSE.format(member))
     await member.add_roles(role)
     await channel.send(APPLICATION_ACCEPTED.format(datetime.now().strftime("%D"), member.mention()))
@@ -175,7 +170,7 @@ async def accept(ctx):
 @commands.has_any_role('Councillor')
 @commands.cooldown(2, 5, commands.BucketType.user)
 async def reject(ctx):
-    role = discord.utils.get(bot.get_guild(GUILD).roles, name=GuildRoles.ROLE_APPLICANT)
+    role = discord.utils.get(bot.get_guild(DISCORD_GUILD).roles, name=GuildRoles.ROLE_APPLICANT)
     member = ctx.message.mentions[0]
     
     if role not in member.roles:
@@ -199,7 +194,7 @@ async def feedback(ctx):
         return
 
     await ctx.author.send(FEEDBACK_RECEIVED)
-    channel = bot.get_channel(COUNCIL_CHANNEL)
+    channel = bot.get_channel(DISCORD_OFFICER_CHANNEL)
     await channel.send(FEEDBACK_FORWARD.format(ctx.message.content.split(None, 1)[1]))
 
 @bot.command(pass_context=True)
