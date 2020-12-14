@@ -46,8 +46,8 @@ async def stats(ctx):
         chris = guild.get_member(236585733341708290)
         
         for player in players[1].split(","):
-            member.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
-            chris.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
+            await chris.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
+            await member.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
 
     await ctx.send(f"Fetching stat weights for: `{players}`")
     
