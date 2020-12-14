@@ -41,12 +41,9 @@ async def on_message_edit(before, after):
 async def stats(ctx):
     players = ctx.message.content.strip().split(" ", 1)
     if len(players) > 1:
-        raidbot = await ctx.message.guild.fetch_member(DISCORD_RAIDBOTS_USER_ID)
-        
-        print(raidbot)
-        
+        channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
         for player in players[1].split(","):
-            await raidbot.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
+            await channel.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
 
     await ctx.send(f"Fetching stat weights for: `{players}`")
     
