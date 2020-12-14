@@ -28,7 +28,7 @@ async def on_member_join(member):
 @bot.event
 async def on_message(message):
     if message.author.id == 236585733341708290:
-        match = re.search(message.content)
+        match = sim_stats_pattern.search(message.content)
         if match != None:
             channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
             await channel.send(f"`{match.groups(1)[0]}: {match.groups(1)[1]}` ")
