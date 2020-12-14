@@ -1,6 +1,7 @@
+import bot_wow_api
 import discord
 import os
-import bot_wow_api
+import re
 
 from discord.ext import commands
 from datetime import datetime
@@ -15,6 +16,8 @@ class GuildRoles:
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 bot.remove_command('help')
 
+sim_stats_pattern = re.compile('Pawn.+"(.+)\s-.+(CritRating.+)\s\)')
+
 applicants = {}
 
 @bot.event
@@ -25,10 +28,10 @@ async def on_member_join(member):
 @bot.event
 async def on_message(message):
     if message.author.id == 236585733341708290:
-        if "HasteRating" in message.content:
-            print(message.content)
+        match = re.search(message.content)
+        if match != None:
             channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
-            await channel.send(message.content)
+            await channel.send(f"`{match.groups(1)[0]}: {match.groups(1)[1]}` ")
     
     await bot.process_commands(message)
 
