@@ -41,7 +41,7 @@ async def on_message_edit(before, after):
 async def stats(ctx):
     players = ctx.message.content.strip().split(" ", 1)
     if len(players) > 1:
-        raidbot = ctx.message.guild.get_member(DISCORD_RAIDBOTS_USER_ID)
+        raidbot = await ctx.message.guild.fetch_member(DISCORD_RAIDBOTS_USER_ID)
         
         print(raidbot)
         
