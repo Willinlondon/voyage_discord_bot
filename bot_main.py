@@ -24,9 +24,7 @@ async def on_member_join(member):
     
 @bot.event
 async def on_message(message):
-    print(message.author)
-    print(message)
-    if message.author == 236585733341708290:
+    if message.author.id == 236585733341708290:
         channel = bot.get_channel(788037136003104778)
         await channel.send('and the trumpets they go!')
     else:
