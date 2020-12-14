@@ -25,28 +25,6 @@ async def on_member_join(member):
     await member.send(ON_MEMBER_JOIN_1)
     await member.send(ON_MEMBER_JOIN_2)
     
-@bot.event
-async def on_message_edit(before, after):
-    if after.author.id == DISCORD_RAIDBOTS_USER_ID and isinstance(after.channel, discord.DMChannel):
-        match = sim_stats_pattern.search(after.content)
-        if match != None:
-            channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
-            await channel.send(f"`{match.groups(1)[0]}: {match.groups(1)[1]}` ")
-    
-    await bot.process_commands(after)
-
-@bot.command(pass_context=True)
-@commands.has_any_role('Councillor')
-@commands.cooldown(2, 5, commands.BucketType.user)
-async def stats(ctx):
-    players = ctx.message.content.strip().split(" ", 1)
-    if len(players) > 1:
-        channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
-        for player in players[1].split(","):
-            await channel.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
-
-    await ctx.send(f"Fetching stat weights for: `{players}`")
-    
 @bot.command()
 @commands.cooldown(1, 30, commands.BucketType.user)
 async def application(ctx):
