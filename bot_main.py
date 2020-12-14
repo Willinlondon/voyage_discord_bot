@@ -25,10 +25,12 @@ async def on_member_join(member):
 @bot.event
 async def on_message(message):
     if message.author.id == 236585733341708290:
-        channel = bot.get_channel(788037136003104778)
-        await channel.send('and the trumpets they go!')
-    else:
-        await bot.process_commands(message)
+        if "HasteRating" in message.content:
+            print(message.content)
+            channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
+            await channel.send(message.content)
+    
+    await bot.process_commands(message)
 
 @bot.command()
 @commands.cooldown(1, 30, commands.BucketType.user)
