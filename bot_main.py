@@ -27,13 +27,13 @@ async def on_member_join(member):
     
 @bot.event
 async def on_message_edit(before, after):
-    if after.author.id == DISCORD_RAIDBOTS_USER_ID:
+    if after.author.id == DISCORD_RAIDBOTS_USER_ID and isinstance(after.channel, discord.DMChannel):
         match = sim_stats_pattern.search(after.content)
         if match != None:
             channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
             await channel.send(f"`{match.groups(1)[0]}: {match.groups(1)[1]}` ")
     
-    await bot.process_commands(message)
+    await bot.process_commands(after)
 
 @bot.command(pass_context=True)
 @commands.has_any_role('Councillor')
