@@ -27,7 +27,7 @@ async def on_member_join(member):
     
 @bot.event
 async def on_message_edit(before, after):
-    if after.author.id == 236585733341708290:
+    if after.author.id == DISCORD_RAIDBOTS_USER_ID:
         match = sim_stats_pattern.search(after.content)
         if match != None:
             channel = bot.get_channel(DISCORD_OFFICER_SIM_CHANNEL)
@@ -35,6 +35,22 @@ async def on_message_edit(before, after):
     
     await bot.process_commands(message)
 
+@bot.command(pass_context=True)
+@commands.has_any_role('Councillor')
+@commands.cooldown(2, 5, commands.BucketType.user)
+async def stats(ctx):
+    players = ctx.message.content.strip().split(" ", 1)
+    if len(players) > 1:
+        guild = bot.get_guild(DISCORD_GUILD)
+        raidbot = guild.get_member(DISCORD_RAIDBOTS_USER_ID)
+        chris = guild.get_member(236585733341708290)
+        
+        for player in players.split(","):
+            member.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
+            chris.send(f"!raidbots {GAME_REGION}/{GAME_REALM}/{player} -s")
+
+    await ctx.send(f"Fetching stat weights for: `{players}`")
+    
 @bot.command()
 @commands.cooldown(1, 30, commands.BucketType.user)
 async def application(ctx):
