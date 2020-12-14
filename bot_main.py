@@ -21,12 +21,6 @@ applicants = {}
 async def on_member_join(member):
     await member.send(ON_MEMBER_JOIN_1)
     await member.send(ON_MEMBER_JOIN_2)
-    
-@bot.event
-async def on_message(message):
-    if message.author == 236585733341708290:
-        channel = bot.get_channel(788037136003104778)
-        await channel.send('and the trumpets they go!')
 
 @bot.command()
 @commands.cooldown(1, 30, commands.BucketType.user)
