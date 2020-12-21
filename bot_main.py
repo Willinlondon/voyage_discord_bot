@@ -133,7 +133,7 @@ async def done(ctx):
 
         guild = bot.get_guild(DISCORD_GUILD)
         role = discord.utils.get(guild.roles, name=GuildRoles.ROLE_APPLICANT)
-        await guild.get_member(ctx.author.id).add_roles(role)
+        await guild.fetch_member(ctx.author.id).add_roles(role)
         
         applicant_map["done"] = datetime.now().strftime("%D")
 
