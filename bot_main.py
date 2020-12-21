@@ -16,8 +16,6 @@ class GuildRoles:
 bot = commands.Bot(command_prefix='!', case_insensitive=True)
 bot.remove_command('help')
 
-sim_stats_pattern = re.compile('Pawn.+"(.+)\s-.+(CritRating.+)\s\)')
-
 applicants = {}
 
 @bot.event
