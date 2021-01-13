@@ -139,7 +139,14 @@ async def done(ctx):
 
         await ctx.author.send(APPLICATION_SUBMITTED)
         channel = bot.get_channel(DISCORD_APPLICATION_CHANNEL)
-        await channel.send(APPLICATION_ACCEPTED.format(datetime.now().strftime("%D"), ctx.author, applicant(applicants, ctx.author)["armory"], applicant(applicants, ctx.author)["raiderio"], applicant(applicants, ctx.author)["logs"], applicant(applicants, ctx.author)["why"], applicant(applicants, ctx.author)["xp"]))
+
+        message = APPLICATION_ACCEPTED.format(datetime.now().strftime("%D"), ctx.author, applicant(applicants, ctx.author)["armory"], applicant(applicants, ctx.author)["raiderio"], applicant(applicants, ctx.author)["logs"], applicant(applicants, ctx.author)["why"], applicant(applicants, ctx.author)["xp"])
+        
+        if len(message) > 2000:
+           for each in message.split("---", 1):
+                await channel.send(each)
+        else:
+            await channel.send(message.replace("---", ""))
 
 
 @bot.command(pass_context=True)
