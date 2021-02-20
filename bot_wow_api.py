@@ -33,6 +33,10 @@ def fetch_ranks_with_class_icons(args):
     formatted_list_of_ranks_matching_criteria = [f"{wow_class_icons[str(member[0])]} `{member[1]}`" for member in list_of_ranks_matching_criteria]
     join_ranks_into_formatted_list = "\n  ".join(formatted_list_of_ranks_matching_criteria)
     
+    if not formatted_list_of_ranks_matching_criteria:
+      # this should be pulled from resources, will do this in another PR
+      return "This rank currently has no players"
+    
     return f"  {join_ranks_into_formatted_list}"
 
 functionality = {"fetch_ranks_with_class_icons": fetch_ranks_with_class_icons}
