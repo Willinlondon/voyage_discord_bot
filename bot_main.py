@@ -164,19 +164,6 @@ async def friend(ctx):
         await ctx.send(FRIEND_ROLE_ASSIGNED
 
 @bot.command(pass_context=True)
-@commands.has_any_role('Crusader', 'Sentinel', 'High Hand', 'Councillor')
-@commands.cooldown(2, 5, commands.BucketType.user)
-async def dj(ctx):
-    role = discord.utils.get(bot.get_guild(DISCORD_GUILD).roles, name=GuildRoles.ROLE_DJ)
-    member = ctx.message.mentions[0]
-
-    if role in member.roles:
-        await ctx.send(DJ_ROLE_ALREADY)
-    else:
-        await member.add_roles(role)
-        await ctx.send(ASSIGN_DJ_ROLE)
-
-@bot.command(pass_context=True)
 @commands.has_any_role('Councillor')
 @commands.cooldown(2, 5, commands.BucketType.user)
 async def accept(ctx):
