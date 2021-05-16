@@ -168,7 +168,7 @@ async def friend(ctx):
 @commands.cooldown(2, 5, commands.BucketType.user)
 async def dj(ctx):
     role = discord.utils.get(bot.get_guild(DISCORD_GUILD).roles, name=GuildRoles.ROLE_DJ)
-    member = ctx.message.mentions[0]
+    member = ctx.author
 
     if role in member.roles:
         await ctx.send(DJ_ROLE_ALREADY)
