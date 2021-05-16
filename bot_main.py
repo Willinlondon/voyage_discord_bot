@@ -162,7 +162,7 @@ async def friend(ctx):
     else:
         await member.add_roles(role)
         await ctx.send(FRIEND_ROLE_ASSIGNED
-                       
+
 @bot.command(pass_context=True)
 @commands.has_any_role('Crusader', 'Sentinel', 'High Hand', 'Councillor')
 @commands.cooldown(2, 5, commands.BucketType.user)
