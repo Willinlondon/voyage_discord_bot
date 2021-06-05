@@ -144,10 +144,10 @@ async def done(ctx):
         message = APPLICATION_ACCEPTED.format(datetime.now().strftime("%D"), ctx.author, applicant(applicants, ctx.author)["armory"], applicant(applicants, ctx.author)["raiderio"], applicant(applicants, ctx.author)["logs"], applicant(applicants, ctx.author)["why"], applicant(applicants, ctx.author)["xp"])
         
         if len(message) > 2000:
-           for each in message.split("---", 1):
+           for each in message.split("$split"):
                 await channel.send(each)
         else:
-            await channel.send(message.replace("---", ""))
+            await channel.send(message.replace("$split", ""))
 
 
 @bot.command(pass_context=True)
