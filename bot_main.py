@@ -145,7 +145,7 @@ async def done(ctx):
         
         if len(message) > 2000:
            for each in message.split("$split"):
-                await channel.send(each)
+                await channel.send(each[:2000]) # Anything larger than this will be cut off due to discord limit
         else:
             await channel.send(message.replace("$split", ""))
 
